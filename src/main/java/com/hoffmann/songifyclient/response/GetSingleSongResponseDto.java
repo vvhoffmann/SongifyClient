@@ -1,4 +1,6 @@
-package com.hoffmann.songifyclient;
+package com.hoffmann.songifyclient.response;
 
-public record SingleSongResponse(Song song) {
+import com.hoffmann.songifyclient.model.SongEntity;
+
+public record GetSingleSongResponseDto(SongEntity song) {
 }

@@ -1,4 +1,6 @@
 package com.hoffmann.songifyclient.response;
 
-public class DeleteSongResponseDto {
+import org.springframework.http.HttpStatus;
+
+public record DeleteSongResponseDto (String message, HttpStatus status) {
 }

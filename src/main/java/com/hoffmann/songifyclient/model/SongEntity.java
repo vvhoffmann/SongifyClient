@@ -1,4 +1,4 @@
 package com.hoffmann.songifyclient.model;
 
-public record Song (String name, String artist){
+public record SongEntity(String name, String artist){
 }

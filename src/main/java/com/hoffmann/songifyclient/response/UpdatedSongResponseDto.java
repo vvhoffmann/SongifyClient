@@ -1,4 +1,4 @@
 package com.hoffmann.songifyclient.response;
 
-public record CreatedSongResponseDto (String songName, String artistName){
+public record UpdatedSongResponseDto(String song, String artist){
 }

@@ -1,5 +1,9 @@
-package com.hoffmann.songifyclient;
+package com.hoffmann.songifyclient.songifyproxy;
 
+import com.hoffmann.songifyclient.request.CreateSongRequestDto;
+import com.hoffmann.songifyclient.request.PartiallyUpdateSongRequestDto;
+import com.hoffmann.songifyclient.request.UpdateSongRequestDto;
+import com.hoffmann.songifyclient.response.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
@@ -9,20 +13,20 @@ import org.springframework.web.bind.annotation.*;
 public interface SongifyClient {
 
     @RequestMapping(method = RequestMethod.GET, value = "/songs")
-    AllSongsResponse makeGetRequest();
+    GetAllSongsResponseDto makeGetRequest();
 
     @RequestMapping(method = RequestMethod.GET, value = "/songs/{id}")
-    SingleSongResponse makeGetByIdRequest(@PathVariable Integer id);
+    GetSingleSongResponseDto makeGetByIdRequest(@PathVariable Integer id);
 
     @PostMapping(path = "/songs")
-    SingleSongResponse makePostRequest(@RequestBody Song song) ;
+    CreatedSongResponseDto makePostRequest(@RequestBody CreateSongRequestDto song) ;
 
     @DeleteMapping(path = "/songs/{id}")
-    SingleSongResponse makeDeleteRequest(@PathVariable Integer id);
+    DeleteSongResponseDto makeDeleteSongByIdRequest(@PathVariable Integer id);
 
     @PutMapping(path = "/songs/{id}")
-    SingleSongResponse makePutRequest(@PathVariable Integer id, @RequestBody Song song);
+    UpdatedSongResponseDto makePutRequest(@PathVariable Integer id, @RequestBody UpdateSongRequestDto song);
 
     @PatchMapping(path = "/songs/{id}")
-    SingleSongResponse makePatchRequest(@PathVariable Integer id, @RequestBody Song song);
+    UpdatedSongResponseDto makePatchRequest(@PathVariable Integer id, @RequestBody PartiallyUpdateSongRequestDto song);
 }

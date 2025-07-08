@@ -1,4 +1,4 @@
-package com.hoffmann.songifyclient;
+package com.hoffmann.songifyclient.config;
 
 import feign.codec.Decoder;
 import feign.jackson.JacksonDecoder;

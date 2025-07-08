@@ -1,4 +1,6 @@
-package com.hoffmann.songifyclient;
+package com.hoffmann.songifyclient.response;
 
-public class CreatedSongResponseDto {
+import com.hoffmann.songifyclient.model.SongEntity;
+
+public record CreatedSongResponseDto (SongEntity song){
 }
